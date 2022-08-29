@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.scss";
-import { images } from "../../constants/images";
+import images from "../../constants/images";
 import { motion } from "framer-motion";
 
 const Header = () => {
@@ -19,8 +19,14 @@ const Header = () => {
               <h1 className="head-text">Andre</h1>
             </div>
           </div>
+          <div className="tag-cmp app__flex">
+            <p className="p-text">Full Stack Developer</p>
+            <p className="p-text">Blockchain specialist</p>
+          </div>
         </div>
       </motion.div>
+
+      <motion.div></motion.div>
     </div>
   );
 };
