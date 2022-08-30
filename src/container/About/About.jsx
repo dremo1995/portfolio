@@ -2,25 +2,33 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import images from "../../constants/images";
 import "./About.scss";
+import { urlFor, client } from "../../client";
 
 const About = () => {
-  const abouts = [
-    {
-      title: "Frontend",
-      description: "React, Javascript, HTML, CSS, TailwindCSS, SASS",
-      image: images.about01,
-    },
-    {
-      title: "Backend",
-      description: "NodeJS, ExpressJS, MongoDB",
-      image: images.about02,
-    },
-    {
-      title: "Web3",
-      description: "Solidity, EthersJS, Ethereum Network",
-      image: images.about03,
-    },
-  ];
+  const [abouts, setAbouts] = useState([]);
+
+  useEffect(() => {
+    const query = '*[_type == "abouts"]';
+
+    client.fetch(query).then((data) => setAbouts(data));
+  }, []);
+  // const abouts = [
+  //   {
+  //     title: "Frontend",
+  //     description: "React, Javascript, HTML, CSS, TailwindCSS, SASS",
+  //     image: images.about01,
+  //   },
+  //   {
+  //     title: "Backend",
+  //     description: "NodeJS, ExpressJS, MongoDB",
+  //     image: images.about02,
+  //   },
+  //   {
+  //     title: "Web3",
+  //     description: "Solidity, EthersJS, Ethereum Network",
+  //     image: images.about03,
+  //   },
+  // ];
   return (
     <div className="app__about">
       <h2 className="head-text">
