@@ -10,6 +10,7 @@ const Work = () => {
   const [filterWork, setFilterWork] = useState([]);
   const [works, setWorks] = useState([]);
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+
   useEffect(() => {
     const query = '*[_type == "works"]';
 
